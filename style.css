@@ -369,3 +369,60 @@ body .progress_inner input[type=radio] {
 .qr-code img {
     width: 55%;
 }
+
+.tab-0,.tab-1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.ticket {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+} */
+
+
+
+
+
+
+
+
+
+
+.flight {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 15px 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px 2px 40px -15px #70afd0;
+  border: 1px solid #70afd0;
+  color: #2e6c8e;
+  font-weight: 700;
+  font-size: 13pt;
+  cursor: pointer; /* Makes it look clickable */
+}
+
+.flight.selected {
+  background-color: #d1e7f5; /* Highlight color when selected */
+  border-color: #2e6c8e; /* Darken border on selection */
+}
