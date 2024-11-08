@@ -388,19 +388,6 @@ body .progress_inner input[type=radio] {
 
 
 
-/* 
-.ticket {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin: 10px 0;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-} */
-
-
-
-
-
 
 
 
@@ -426,3 +413,25 @@ body .progress_inner input[type=radio] {
   background-color: #d1e7f5; /* Highlight color when selected */
   border-color: #2e6c8e; /* Darken border on selection */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
