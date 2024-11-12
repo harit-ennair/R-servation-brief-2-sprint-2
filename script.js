@@ -40,9 +40,6 @@ function toggleNextButton() {
 }
 
 
-
-
-
 document.getElementById('depart').addEventListener('input', toggleNextButton1);
 document.getElementById('arriver').addEventListener('input', toggleNextButton1);
 document.getElementById('date').addEventListener('input', toggleNextButton1);
@@ -55,6 +52,7 @@ function toggleNextButton1() {
 
     if (mydepart === '' || mydepart === 'La gare de départ' ||
         myarriver === '' || myarriver === 'La gare d arriver' ||
+        myarriver === mydepart  ||
         mydate === '') {
         document.getElementById("NEXT1").style.display = 'none';
     } else {
