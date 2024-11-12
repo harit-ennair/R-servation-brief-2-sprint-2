@@ -218,7 +218,7 @@ body .progress_inner__tabs .tab {
   margin-top: 80px;
   box-shadow: 0px 2px 1px #80b7d5;
   padding: 30px;
-  background: white;
+  background:#edf2f5;
   border-radius: 10px;
   transition: all 0.2s;
   width: 690px;
@@ -323,10 +323,14 @@ body .progress_inner input[type=radio] {
 /*ticket*/
 
 .card {
+  
     width: 35%;
     height: 75%;
     border-radius: 1em 1em 0 0;
     position: relative;
+}
+.cardContainer{
+  height: 850px;  display: flex; justify-content: center; align-items: center;
 }
 
 .view{
@@ -342,17 +346,20 @@ body .progress_inner input[type=radio] {
 
 .content {
     width: 40%;
-    background-image: url(card-backgroud.svg);
+   background-color: #1f8bc5;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: white;
-    padding: 1em;
+   
 }
 
 
 .user-info {
     padding-bottom: 60px;
+}
+.QR{
+  margin-left: 42px;
 }
 
 .qr-code {

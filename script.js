@@ -16,12 +16,6 @@ radios.forEach((radio, index) => {
 
 
 
-
-
-
-
-
-
 function add() {
 
     var mynom = document.getElementById('nom').value;
@@ -30,11 +24,6 @@ function add() {
     var myarriver = document.getElementById('arriver').value;
     var mydate = document.getElementById('date').value;
 
-    document.getElementById('spannom').textContent = mynom
-    document.getElementById('spanemail').textContent = myemail
-    document.getElementById('spandate').textContent = mydate
-    document.getElementById('spandepart').textContent = mydepart
-    document.getElementById('spanarriver').textContent = myarriver
 }
 
 document.getElementById('nom').addEventListener('input', toggleNextButton);
@@ -91,12 +80,8 @@ flights.forEach(flight => {
 
         document.getElementById("NEXT2").style.display = 'block';
 
-         selectedDeparture = this.querySelector('.departure-time').textContent;
-         selectedArrival = this.querySelector('.arrival-time').textContent;
-
-
-        document.getElementById('spantimed').textContent = selectedDeparture
-        document.getElementById('spantimea').textContent = selectedArrival
+        selectedDeparture = this.querySelector('.departure-time').textContent;
+        selectedArrival = this.querySelector('.arrival-time').textContent;
 
     });
 });
@@ -195,97 +180,95 @@ function add2() {
 
 
 let checkboxes = document.querySelectorAll('.chek');
-
 checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener("click", function () {
-
-
-
         if (checkbox.checked) {
             cheke++;
         } else {
-
             cheke--;
         }
-
-
-
         if ((count + counte) == cheke) {
-
             document.getElementById('NEXT3').style.display = "block"
-
         } else {
-
             document.getElementById('NEXT3').style.display = "none"
-
         }
-
-
     });
 });
 
 
-
-
-
-
-
-
-
-
-
-
-function add2() {
-
-    for(let i=0; i< counte; i++){
-            document.getElementById("ticket").innerHTML += `
+function add2() {    
+    let j=0
+    
+    for (let i = 0; i < counte; i++) {
+        let a=`${i}`
+         
+        document.getElementById("ticket").innerHTML += `
                 <div style="height: 850px;  display: flex; justify-content: center; align-items: center;">
                   <div class="card content">
                     <div style="width: auto;" class="user-info">
-                    <p style="font-size: x-large;color:rgb(0, 0, 0);">Adult ticket</p>
-
-
-
-
-                      <p>Nom et prénom : <br> <span id="spannom">${mynom}</span></p>
-                      <p>E-mail : <br> <span id="spanemail">${myemail}</span></p>
-                      <p>La gare de départ : <br> <span id="spandepart">${mydepart}</span> <span id="spantimed">${selectedDeparture}</span></p>
-                      <p>La gare d arriver : <br> <span id="spanarriver">${myarriver}</span> <span id="spantimea">${selectedArrival}</span></p>
+                      <p style="font-size: x-large;color:rgb(0, 0, 0);">Adult ticket</p>
+                      <p style="margin: 10px;">Nom et prénom : <br> <span id="spannom">${mynom}</span></p>
+                      <p style="margin: 10px;">E-mail : <br> <span id="spanemail">${myemail}</span></p>
+                      <p style="margin: 10px;">La gare de départ : <br> <span id="spandepart">${mydepart}</span> <span id="spantimed">${selectedDeparture}</span></p>
+                      <p style="margin: 10px;">La gare d arriver : <br> <span id="spanarriver">${myarriver}</span> <span id="spantimea">${selectedArrival}</span></p>
                       <p>Date de réservation : <br> <span id="spandate">${mydate}</span></p>
                       <p>Prix : 500DH</p>
+                      <p class="TNum">ticket N°:${i+1}</p>
+                      <p >-------------------------------------</p>
                     </div>
                     <div class="qr-code">
-                      <p>Code QR :</p>
-                      <img src="qr-code.svg" alt="code QR" />
+                      <p>Code QR </p>
+                      <img class='QR'  />
+                      
                     </div>
                   </div>
                 </div>
                 `
-        }
+                let TNum=document.querySelectorAll('.TNum');
+                let QRImg=document.querySelectorAll('.QR');
+                for(let j=0;j<QRImg.length;j++){
+                QRCode.toDataURL(TNum[j].textContent).then(dataUrl=>{
+                    QRImg[j].src=dataUrl;
+                    console.log(QRImg);
+                    
+                      })      
+                }
+  
+    }
 
-
-
-
-        
-for(let i=0; i< count; i++){
+    for (let i = 0; i < count; i++) {
         document.getElementById("ticket").innerHTML += `
             <div style="height: 850px;  display: flex; justify-content: center; align-items: center;">
               <div class="card content">
                 <div style="width: auto;" class="user-info">
-                <p style="font-size: x-large;color:rgb(0, 0, 0);">Enfant ticket</p>
-                      <p>Nom et prénom : <br> <span id="spannom">${mynom}</span></p>
-                      <p>E-mail : <br> <span id="spanemail">${myemail}</span></p>
-                      <p>La gare de départ : <br> <span id="spandepart">${mydepart}</span> <span id="spantimed">${selectedDeparture}</span></p>
-                      <p>La gare d arriver : <br> <span id="spanarriver">${myarriver}</span> <span id="spantimea">${selectedArrival}</span></p>
+                      <p style="font-size: x-large;color:rgb(0, 0, 0);">Enfant ticket</p>
+                      <p style="margin: 10px;">Nom et prénom : <br> <span id="spannom">${mynom}</span></p>
+                      <p style="margin: 10px;">E-mail : <br> <span id="spanemail">${myemail}</span></p>
+                      <p style="margin: 10px;">La gare de départ : <br> <span id="spandepart">${mydepart}</span> <span id="spantimed">${selectedDeparture}</span></p>
+                      <p style="margin: 10px;">La gare d arriver : <br> <span id="spanarriver">${myarriver}</span> <span id="spantimea">${selectedArrival}</span></p>
                       <p>Date de réservation : <br> <span id="spandate">${mydate}</span></p>
-                 <p>Prix : 100DH</p>
+                      <p>Prix : 100DH</p>
+                        <p class="TNum">ticket N°:${i+1+counte}</p>
+                      <p >-------------------------------------</p>
+                    </div>
+                    <div class="qr-code">
+                      <p>Code QR </p>
+                      <img class='QR'  />
+                      
+                    </div>
+                  </div>
                 </div>
-                <div class="qr-code">
-                  <p>Code QR :</p>
-                  <img src="qr-code.svg" alt="code QR" />
-                </div>
-              </div>
-            </div>
-            `
-    }
+                `
+                }
+                let TNum=document.querySelectorAll('.TNum');
+                let QRImg=document.querySelectorAll('.QR');
+                for(let j=0;j<QRImg.length;j++){
+                QRCode.toDataURL(TNum[j].textContent).then(dataUrl=>{
+                    QRImg[j].src=dataUrl;
+                    console.log(QRImg);
+                    
+                      })      
+                }
+            
+    
 }
