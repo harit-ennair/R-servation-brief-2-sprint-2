@@ -14,16 +14,12 @@ radios.forEach((radio, index) => {
     });
 });
 
-
-
 function add() {
-
     var mynom = document.getElementById('nom').value;
     var myemail = document.getElementById('email').value;
     var mydepart = document.getElementById('depart').value;
     var myarriver = document.getElementById('arriver').value;
     var mydate = document.getElementById('date').value;
-
 }
 
 document.getElementById('nom').addEventListener('input', toggleNextButton);
@@ -39,62 +35,45 @@ function toggleNextButton() {
     }
 }
 
-
 document.getElementById('depart').addEventListener('input', toggleNextButton1);
 document.getElementById('arriver').addEventListener('input', toggleNextButton1);
 document.getElementById('date').addEventListener('input', toggleNextButton1);
 
 
+
+    let currentDate= new Date();
 function toggleNextButton1() {
     mydepart = document.getElementById('depart').value;
     myarriver = document.getElementById('arriver').value;
     mydate = document.getElementById('date').value;
 
+    const selectDate = new Date(mydate);
+
     if (mydepart === '' || mydepart === 'La gare de départ' ||
         myarriver === '' || myarriver === 'La gare d arriver' ||
         myarriver === mydepart  ||
-        mydate === '') {
+        mydate === '' || selectDate < currentDate
+    
+    
+
+    ) {
         document.getElementById("NEXT1").style.display = 'none';
     } else {
         document.getElementById("NEXT1").style.display = 'block';
     }
 }
 
-
-
-
-
-
-
 const flights = document.querySelectorAll('.flight');
 
 flights.forEach(flight => {
     flight.addEventListener('click', function () {
-
         flights.forEach(f => f.classList.remove('selected'));
-
-
         this.classList.add('selected');
-
         document.getElementById("NEXT2").style.display = 'block';
-
         selectedDeparture = this.querySelector('.departure-time').textContent;
         selectedArrival = this.querySelector('.arrival-time').textContent;
-
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 let cont1 = document.getElementById("cont1")
 let cont2 = document.getElementById("cont2")
@@ -108,11 +87,6 @@ let cheke = 0
 var selectedDeparture
 var selectedArrival
 
-
-
-
-
-
 function updatePrices() {
     prix1 = counte * 500
     prix2 = count * 100
@@ -122,27 +96,18 @@ function updatePrices() {
     document.getElementById('prix2').textContent = prix2
     document.getElementById('prixt').textContent = prixt
 
-
-
     if ((count + counte) == cheke) {
-
         document.getElementById('NEXT3').style.display = "block"
-
     } else {
-
         document.getElementById('NEXT3').style.display = "none"
-
     }
-
 }
-
 
 function incremente() {
     if (counte + count < 16) {
         counte++
         cont1.innerText = counte
         updatePrices()
-
     }
 }
 
@@ -171,9 +136,7 @@ function decrement() {
 }
 
 function add2() {
-
     document.getElementById('prixt2').textContent = prixt
-
 }
 
 
@@ -192,7 +155,6 @@ checkboxes.forEach(function (checkbox) {
         }
     });
 });
-
 
 function add2() {    
     let j=0
@@ -268,5 +230,17 @@ function add2() {
                       })      
                 }
             
-    
 }
+
+document.getElementById('NEXT4').addEventListener('click', function() {
+    printTicket();
+
+});
+
+
+function printTicket(){
+
+    window.print();
+}
+
+
